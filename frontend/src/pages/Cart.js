@@ -5,11 +5,13 @@ import displayINRCurrency from '../helpers/displayCurrency'
 import { MdDelete } from "react-icons/md";
 import {loadStripe} from "@stripe/stripe-js"
 
+
 const Cart = () => {
     const [data,setData] = useState([])
     const [loading,setLoading] = useState(false)
     const context = useContext(Context)
     const loadingCart = new Array(4).fill(null)
+
 
 
 
@@ -116,31 +118,35 @@ const Cart = () => {
         }
     }
 
-    console.log("data",data);
-    const CartData = [...data];
-console.log("CartData",CartData);
+    // console.log("data",data);
+    
+
+
+
+
+const totalQty = data.reduce((previousValue,currentValue)=> previousValue + currentValue.quantity,0)
+const totalPrice = data.reduce((prev,curr)=> prev + (curr.quantity * curr?.productId?.sellingPrice) ,0)
 
 // stripe Payment
 
     const makePayment = async ()=>{
-        const stripe = await loadStripe("pk_test_51P96nVSGpwQyoaRYwZBwknCNdNKtGgmuANsCkW8GowmZ2nOlOefo2dD4EVa6wyDwZAWJuGrCx4v7RRowyzjCSftq00j8cX7huh");
+        const stripe = await loadStripe("pk_test_51OFCQgSJyZWb4i48zuplAKFR2j14WDW0ZyqgTmJKP2A5kamcoYTlLqVezS84rQUbXuVbYIVuJpRHj6dC6SCWMwnd00W3gt4GpM");
 
         const headers = {
             "Content-Type":"application/json",
         }
+        const body = {
+            products : data
+        }
 
-        const response = await fetch(SummaryApi.checkout.url,{
-            method:SummaryApi.checkout.method,
+        const response = await fetch("http://localhost:8080/api/checkout",{
+            method:"POST",
             headers:headers,
-            body:JSON.stringify({
-                    products:{
-                        data
-                    }
-            })
+            body:JSON.stringify(body)
             
         })
 
-        console.log("response data",response);
+        
 
         const session = await response.json();
 
@@ -148,7 +154,7 @@ console.log("CartData",CartData);
             sessionId:session.id
         })
 
-        console.log("result:",result);
+        
         if(result.error)
         {
             console.log("result:",result.error.message);
@@ -157,12 +163,14 @@ console.log("CartData",CartData);
            
      };
      
-  
+    //  if(cartLength == 0)
+    //  {
+    //      setData([]);
+    //     }
+    //     console.log("data",data);
 
-  
 
-    const totalQty = data.reduce((previousValue,currentValue)=> previousValue + currentValue.quantity,0)
-    const totalPrice = data.reduce((prev,curr)=> prev + (curr.quantity * curr?.productId?.sellingPrice) ,0)
+
   return (
     <div className='container mx-auto'>
         

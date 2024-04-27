@@ -7,7 +7,7 @@ const router = require('./routes')
 const authToken = require('../backend/middleware/authToken')
 
 
-const stripe = require('stripe')('sk_test_51P96nVSGpwQyoaRYKMoSqoQyd4ojq78oKE2QchdqrJTEjpdw1YkzhiR4QsYuMzvAzEvnVuxLDzYJWFr13ghnagVf00yar7yCX9');
+const stripe = require('stripe')('sk_test_51OFCQgSJyZWb4i48bVa6b057A5OCU07TexkPGuvbzdA5H9KnURPaMkDJPSyejb8FIHioxKgvdjMZVD4J0BzwAYgy00btayUsZI');
 
 const app = express()
 app.use(cors({
@@ -23,9 +23,9 @@ app.use("/api",router)
 
 //stripe routes
 
-app.post("/api/checkout",authToken, async(req,res)=>{
+app.post("/api/checkout",async(req,res)=>{
 
-    const  products = req.body;
+    const { products }= req.body;
     console.log("product",products);
     
 
@@ -36,7 +36,7 @@ app.post("/api/checkout",authToken, async(req,res)=>{
                 name: data.productId.productName,
                 images:[data.productId.productImage[0]],
             },
-            unit_amount:(data.productId.sellingPrice) * 100,
+            unit_amount:Math.round((data.productId.sellingPrice) * 100),
         },
         quantity: data.quantity,
 
@@ -44,9 +44,8 @@ app.post("/api/checkout",authToken, async(req,res)=>{
     }))
 
     const session = await stripe.checkout.sessions.create({
-        payment_method_type : ["card"],
+        payment_method_types : ["card"],
         line_items: lineItems,
-        
         mode:"payment",
         success_url : "http://localhost:3000/success",
         cancel_url : "http://localhost:3000/cancel",
