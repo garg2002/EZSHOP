@@ -75,9 +75,9 @@ const SignUp = () => {
   return (
     <section id="signup" className="">
      
-      <div className="flex w-full h-full p-2">
-        <div className="w-half h-full   border-r-4">
-          <img src={SignUpImage} width={830} height={450} alt="" />
+      <div className="flex md:flex-row flex-col w-full h-full p-2">
+        <div className="hidden md:w-half h-full   border-r-4">
+          <img src={SignUpImage} width={650} height={400} alt="" />
         </div>
 
         <div className="bg-slate-100 h-full rounded-lg shadow-xl px-5  w-full max-w-md m-auto">
@@ -177,7 +177,7 @@ const SignUp = () => {
               </div>
             </div>
 
-            <button className="bg-emerald-300 hover:bg-emerald-500 text-white px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-110 transition-all mx-auto block mt-6">
+            <button className="bg-emerald-400 hover:bg-emerald-600 text-white px-6 py-2 w-full max-w-[150px] rounded-full hover:scale-110 transition-all font-semibold mx-auto block mt-6">
               Sign Up
             </button>
           </form>

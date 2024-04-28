@@ -22,7 +22,7 @@ const CategoryList = () => {
 
   return (
     <div className='container mx-auto p-4'>
-           <div className='flex items-center gap-4  bg-white rounded-lg shadow-2xl justify-between overflow-scroll scrollbar-none'>
+           <div className='flex items-center gap-4  bg-white rounded shadow-2xl justify-between overflow-scroll scrollbar-none'>
             {
 
                 loading ? (

@@ -58,10 +58,10 @@ const CategoryWiseProductDisplay = ({ category, heading }) => {
               return (
                 <Link
                   to={"/product/" + product?._id}
-                  className="w-full min-w-[280px]  md:min-w-[320px] max-w-[280px] md:max-w-[320px]  bg-white rounded-sm shadow "
+                  className="w-full min-w-[300px]  md:min-w-[320px] max-w-[280px] md:max-w-[320px]  bg-white rounded-sm shadow "
                   onClick={scrollTop}
                 >
-                  <div key={index} className="bg-slate-200 h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center">
+                  <div key={index} className="bg-slate-200 h-48 p-4 min-w-[300px] md:min-w-[145px] flex justify-center items-center">
                     <img
                       src={product.productImage[0]}
                       className="object-scale-down h-full hover:scale-110 transition-all mix-blend-multiply"
@@ -74,16 +74,16 @@ const CategoryWiseProductDisplay = ({ category, heading }) => {
                     <p className="capitalize text-slate-500">
                       {product?.category}
                     </p>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 ">
                       <p className="text-red-600 font-medium">
                         {displayINRCurrency(product?.sellingPrice)}
                       </p>
                       <p className="text-slate-500 line-through">
-                        {displayINRCurrency(product?.price)}
+                        {(displayINRCurrency(product?.price))}
                       </p>
                     </div>
                     <button
-                      className="text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-0.5 rounded-full"
+                      className="text-sm bg-red-600 hover:bg-red-700 text-white  md:px-3 py-0.5 rounded-full"
                       onClick={(e) => handleAddToCart(e, product?._id)}
                     >
                       Add to Cart

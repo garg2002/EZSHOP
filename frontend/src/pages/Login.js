@@ -60,22 +60,22 @@ const Login = () => {
 
   return (
     <section id="login">
-      <div className="flex w-full h-full p-2">
-        <div className="w-half h-full   border-r-4">
-          <img src={LoginImage} width={830} height={450} alt="" />
+      <div className="md:flex-row flex-col flex w-full h-full p-2">
+        <div className="hidden md:w-half h-full   border-r-4">
+          <img src={LoginImage} width={650} height={400} alt="" />
         </div>
 
-        <div className="bg-slate-100  rounded-lg shadow-xl p-5 w-full h-full max-w-sm m-auto">
+        <div className="bg-slate-100  rounded-lg shadow-xl p-5 w-full h-full max-w-md m-auto">
           <div className="w-full h-full  p-4  ">
             <h1 className="text-4xl text-center font-serif font-bold uppercase tracking-tight text-emerald-400 ">
               Sign In
             </h1>
           </div>
           <div className="w-20 h-20 mx-auto">
-            <img src={loginIcons} alt="login icons" />
+            <img className="rounded-full" src={loginIcons} alt="login icons" />
           </div>
 
-          <form className="pt-6 flex flex-col gap-2" onSubmit={handleSubmit}>
+          <form className="pt-6 flex text-lg flex-col gap-2" onSubmit={handleSubmit}>
             <div className="grid">
               <label>Email : </label>
               <div className="bg-slate-100 p-2">

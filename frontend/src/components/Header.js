@@ -57,11 +57,11 @@ const Header = () => {
       <div className=' h-full container  flex items-center px-1  '>
                 <Link to={"/"}>
             <div className='flex w-36 md:w-80 h-2/8 justify-center mx-2'>
-                   <img src={logo} className='object-cover' alt="ezStore" width={100} height={40} />
+                   <img src={logo} className='object-cover' alt="ezStore" width={110} height={40} />
             </div>
                 </Link>
 
-            <div className='w-48 shadow-sm h-7 flex md:h-12 gap-4 bg-slate-50 md:w-full max-w-xl border rounded-lg focus-within:shadow pl-2'>
+            <div className='shadow-sm w-52 h-7 flex md:h-12 gap-4 bg-slate-50 md:w-full max-w-xl border rounded-lg focus-within:shadow pl-2'>
               
                <GrSearch className='mt-1 md:mt-3 text-xl md:text-2xl  text-gray-300'/>
                 <input type='text' placeholder='Search for Product, Brands and More ' className='w-full overflow-hidden pr-2 h-full outline-none bg-slate-50 text-lg md:text-xl text-black font-serif font-medium' onChange={handleSearch} value={search}/>
@@ -83,9 +83,10 @@ const Header = () => {
                             <h2 className=' hidden md:flex text-gray-800 text-xl font-serif mt-2 capitalize'>{user?.name}</h2>
                             </div>
                           ) : (
-                            
-                            <FaRegCircleUser />
-                           
+                            <div className='flex gap-4'>
+                            <FaRegCircleUser className='mt-5 text-2xl '/>
+                            <h2 className=' hidden md:flex text-gray-800 text-xl font-serif mt-5 capitalize'>{user?.name}</h2>
+                           </div>
                           )
                         }
                       </div>
