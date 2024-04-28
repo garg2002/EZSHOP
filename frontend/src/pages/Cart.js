@@ -139,7 +139,7 @@ const totalPrice = data.reduce((prev,curr)=> prev + (curr.quantity * curr?.produ
             products : data
         }
 
-        const response = await fetch("http://localhost:8080/api/checkout",{
+        const response = await fetch("https://ezshop-v56r.onrender.com/api/checkout",{
             method:"POST",
             headers:headers,
             body:JSON.stringify(body)
