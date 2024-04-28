@@ -11,7 +11,7 @@ const stripe = require('stripe')('sk_test_51OFCQgSJyZWb4i48bVa6b057A5OCU07TexkPG
 
 const app = express()
 app.use(cors({
-    origin :"http://localhost:3000",
+    origin :"https://ezshop-gray.vercel.app/",
     credentials : true
 }))
 app.use(express.json({limit:'50mb'}))
