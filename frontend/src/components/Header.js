@@ -13,6 +13,7 @@ import logo from '../assest/logo.png'
 
 const Header = () => {
   const user = useSelector(state => state?.user?.user)
+  console.log("user",user);
   const dispatch = useDispatch()
   const [menuDisplay,setMenuDisplay] = useState(false)
   const context = useContext(Context)
