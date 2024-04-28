@@ -14,6 +14,7 @@ const initialState = {
       }
     },
   })
+  console.log("userSlice", userSlice);
   
   // Action creators are generated for each case reducer function
   export const { setUserDetails } = userSlice.actions
