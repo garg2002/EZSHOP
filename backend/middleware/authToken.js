@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const AppError = require('./AppError')
 
-async function authToken(req,res,next){
+async function authToken(req,_res,next){
     // try{
     //     const {token} = req.cookies;
 
@@ -33,7 +33,8 @@ async function authToken(req,res,next){
     //     })
     // }
 
-    const {token} = res.cookies;
+    const token = req.cookies;
+
     if (!token) {
         return next(new AppError("Unauthorized, please login to continue", 401));
       }
