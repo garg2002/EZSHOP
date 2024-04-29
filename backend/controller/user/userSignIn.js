@@ -15,6 +15,8 @@ async function userSignInController(req,res){
 
         const user = await userModel.findOne({email})
 
+        console.log("user-found : ", user);
+
        if(!user){
             throw new Error("User not found")
        }

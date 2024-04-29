@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken')
 async function authToken(req,res,next){
     try{
         const token = req.cookies?.token;
+        console.log("token ------------- : ", token);
 
         if(!token){
             return res.status(200).json({
@@ -19,7 +20,7 @@ async function authToken(req,res,next){
                 console.log("error aa gai re", err)
             }
 
-            req.userId = decoded?._id
+            req.user.id = decoded?._id
 
             next()
         });
