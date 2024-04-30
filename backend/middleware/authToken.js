@@ -13,7 +13,7 @@ async function authToken(req,res,next){
             })
         }
 
-        const decode = jwt.verify(token, process.env.TOKEN_SECRET_KEY, function(err, decoded) {
+       jwt.verify(token, process.env.TOKEN_SECRET_KEY, function(err, decoded) {
             
             
             if(err){
@@ -24,7 +24,6 @@ async function authToken(req,res,next){
 
             next()
         });
-        console.log("decode", decode);
        
 
 
