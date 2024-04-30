@@ -15,22 +15,19 @@ async function userSignInController(req,res){
 
         const user = await userModel.findOne({email})
 
-        console.log("user-found : ", user);
-
        if(!user){
             throw new Error("User not found")
        }
 
        const checkPassword = await bcrypt.compare(password,user.password)
 
-       
+       console.log("checkPassoword",checkPassword)
 
        if(checkPassword){
         const tokenData = {
             _id : user._id,
             email : user.email,
         }
-        console.log(tokenData);
         const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: 60 * 60 * 8 });
 
         const tokenOption = {
@@ -44,8 +41,6 @@ async function userSignInController(req,res){
             success : true,
             error : false
         })
-
-
 
        }else{
          throw new Error("Please check Password")
