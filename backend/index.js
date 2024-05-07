@@ -10,12 +10,12 @@ const authToken = require('../backend/middleware/authToken')
 const stripe = require('stripe')('sk_test_51OFCQgSJyZWb4i48bVa6b057A5OCU07TexkPGuvbzdA5H9KnURPaMkDJPSyejb8FIHioxKgvdjMZVD4J0BzwAYgy00btayUsZI');
 
 const app = express()
+app.use(cookieParser())
 app.use(cors({
-    origin :"https://ezshop-gray.vercel.app",
-    credentials : true
+    origin :"http://localhost:3000",
+    credentials : true,
 }))
 app.use(express.json({limit:'50mb'}))
-app.use(cookieParser())
 app.use(express.static('public'));
 
 
@@ -47,8 +47,8 @@ app.post("/api/checkout",async(req,res)=>{
         payment_method_types : ["card"],
         line_items: lineItems,
         mode:"payment",
-        success_url : "https://ezshop-gray.vercel.app/success",
-        cancel_url : "https://ezshop-gray.vercel.app/cancel",
+        success_url : "http://localhost:3000/success",
+        cancel_url : "http://localhost:3000/cancel",
     });
 
     console.log("session",session);
