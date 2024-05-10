@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'https://ezshop-v56r.onrender.com/',
+      target: 'https://ezshop-v56r.onrender.com',
       changeOrigin: true,
     })
   );

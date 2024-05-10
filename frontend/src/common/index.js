@@ -1,4 +1,4 @@
-const backendDomin = "https://ezshop-v56r.onrender.com/"
+const backendDomin = "https://ezshop-v56r.onrender.com"
 
 const SummaryApi = {
     signUP : {
