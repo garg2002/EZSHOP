@@ -53,11 +53,5 @@ router.get("/view-card-product",authToken,addToCartViewProduct)
 router.post("/update-cart-product",authToken,updateAddToCartProduct)
 router.post("/delete-cart-product",authToken,deleteAddToCartProduct)
 
-//stripe routes
-
-
-
-
-
 
 module.exports = router

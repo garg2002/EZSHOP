@@ -13,9 +13,6 @@ const Cart = () => {
     const loadingCart = new Array(4).fill(null)
 
 
-
-
-
     const fetchData = async() =>{
         
         const response = await fetch(SummaryApi.addToCartProductView.url,{
@@ -139,8 +136,8 @@ const totalPrice = data.reduce((prev,curr)=> prev + (curr.quantity * curr?.produ
             products : data
         }
 
-        const response = await fetch("https://ezshop-v56r.onrender.com/api/checkout",{
-            method:"POST",
+        const response = await fetch(SummaryApi.checkout.url,{
+            method:SummaryApi.checkout.method,
             headers:headers,
             body:JSON.stringify(body)
             
