@@ -2,14 +2,14 @@ import React from "react";
 import { IoLogoInstagram } from "react-icons/io5";
 import { CiFacebook } from "react-icons/ci";
 import { CiTwitter } from "react-icons/ci";
-import logo from '../assest/logo.png'
+import logo1 from '../assest/logo1.png'
 
 const Footer4 = () => {
     return (
         <div className="mx-auto container xl:px-20 lg:px-12 sm:px-6 bg-white  px-4 py-12">
             <div className="flex flex-col items-center justify-center">
                 <div>
-                <img src={logo} className='object-cover' alt="ezStore" width={200} height={45} />
+                <img src={logo1} className='object-cover' alt="ezStore" width={200} height={45} />
 
                 </div>
                 <div className="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8">

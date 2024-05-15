@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 import { setUserDetails } from '../store/userSlice';
 import ROLE from '../common/role';
 import Context from '../context';
-import logo from '../assest/logo.png'
+import logo1 from '../assest/logo1.png'
 
 const Header = () => {
   
@@ -61,7 +61,7 @@ const Header = () => {
       <div className=' h-full container  flex items-center px-1  '>
                 <Link to={"/"}>
             <div className='flex w-36 md:w-80 h-2/8 justify-center mx-2'>
-                   <img src={logo} className='object-cover' alt="ezStore" width={110} height={40} />
+                   <img src={logo1} className='object-cover' alt="ezStore" width={110} height={40} />
             </div>
                 </Link>
 
